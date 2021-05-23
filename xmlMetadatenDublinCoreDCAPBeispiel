@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://dublincore.org/xml/dc-dsp/2008/01/14" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DescriptionSetTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="DescriptionTemplate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="StatementTemplate">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Property" type="xs:string" />
+                    <xs:element minOccurs="0" name="NonLiteralConstraint">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element minOccurs="0" name="ValueURIOccurrence" type="xs:string" />
+                          <xs:element minOccurs="0" name="VocabularyEncodingSchemeURI" type="xs:string" />
+                          <xs:element minOccurs="0" name="ValueStringConstraint">
+                            <xs:complexType>
+                              <xs:attribute name="minOccurs" type="xs:unsignedByte" use="required" />
+                              <xs:attribute name="maxOccurs" type="xs:unsignedByte" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="descriptionTemplateRef" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="LiteralConstraint">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SyntaxEncodingScheme" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ID" type="xs:string" use="required" />
+                  <xs:attribute name="minOccurs" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="maxOccurs" type="xs:string" use="optional" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:string" use="required" />
+            <xs:attribute name="minOccurs" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="maxOccurs" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="standalone" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
